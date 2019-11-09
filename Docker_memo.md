@@ -1,6 +1,9 @@
 # Docker_memo  
 
-docker run --name コンテナ名 -d \  
+`docker run --name コンテナ名 -d \  
 -p ホストのポート番号:コンテナのポート番号 \
-イメージ名
+イメージ名`  
+
+ * --name
+
 
