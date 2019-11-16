@@ -78,5 +78,16 @@ Dockerイメージは複数のイメージで継承環境を作ることがで�
 イメージの定義ファイルであるDockerfileを作成し、Dockerイメージを構築する。これをイメージビルドという。
 
 ```Dockerfile
+# Dockerfileでは命令の後に引数を与える
+
+# FROMはイメージを作成する際に基になるイメージを指定する命令
+# 基になるイメージの上に新しいレイヤーを重ねてカスタマイズする
 FROM docker/whalesay:latest
+
+# ubuntuがベースになっているイメージではapt-getが使える
+# RUN命令はイメージビルドの際に実行するコマンドを指定する命令
+RUN apt-get -y && apt-get install -y fortunes
+
+# CMD命令はコンテナが作成された後で実行するコマンドを指定する命令
+CMD /usr/games/fortune | cowsay
 ```
