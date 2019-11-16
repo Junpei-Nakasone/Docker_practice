@@ -1,0 +1,23 @@
+# for learning purpose
+
+# docker-composeのファイル形式のバージョンを表す。2019年11月時点では３が最新。
+version: '3'
+
+# 一つのサービス毎に一つのコンテナを立ち上げる設定
+services:
+  # webというコンテナを立ち上げる
+  web:
+    # docker-composeと同じディレクトリをビルドコンテキストとしている。そのため、docker-compose.ymlと同じディレクトリにDockerfileを用意しておく必要がある。
+    build: .
+    # portsはコンテナ外部に公開するポートとマッピング先のポートを示している
+    ports:
+    - "5000:5000"
+    volumes:
+    - .:/code
+    - logvolume01:/var/log
+    links:
+    - redis
+  redis:
+    image: redis
+volumes:
+  logvolume01: {}

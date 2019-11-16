@@ -1,3 +1,3 @@
 # Docker_practice
 
-Docker練習用リポジトリです。
+This repository is for learning purpose of Docker.
