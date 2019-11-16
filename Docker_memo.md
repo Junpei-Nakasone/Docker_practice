@@ -77,6 +77,6 @@ Dockerイメージは複数のイメージで継承環境を作ることがで�
 # イメージビルド  
 イメージの定義ファイルであるDockerfileを作成し、Dockerイメージを構築する。これをイメージビルドという。
 
-```
+```Dockerfile
 FROM docker/whalesay:latest
 ```
