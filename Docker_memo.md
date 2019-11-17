@@ -90,4 +90,10 @@ RUN apt-get -y && apt-get install -y fortunes
 
 # CMD命令はコンテナが作成された後で実行するコマンドを指定する命令
 CMD /usr/games/fortune | cowsay
+```  
+
+Dockerfileができたらdocker buildでイメージをビルドする  
+
+```sh
+$docker build -t docker-whale
 ```
