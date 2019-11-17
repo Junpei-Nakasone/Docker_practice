@@ -94,6 +94,6 @@ CMD /usr/games/fortune | cowsay
 
 Dockerfileができたらdocker buildでイメージをビルドする  
 
-```sh
+```
 $docker build -t docker-whale
 ```
