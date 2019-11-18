@@ -113,3 +113,16 @@ $docker build -t docker-test .
 $docker run --name <コンテナ名> -d \
 -p <ホスト側のポート番号>:<コンテナ側のポート番号> <イメージ名>
 ```
+
+# バインドマウントを使用してnginxのDockerコンテナを立ち上げるコマンド  
+```
+$docker run --name <コンテナ名> -d \
+-v <ホスト側のディレクトリ>:<コンテナ側のマウントポイント>:<オプション> \
+-p <ホスト側のポート番号>:<コンテナ側のポート番号> \
+<イメージ名>
+```  
+
+## DockerHubでnginxリポジトリの説明に記載されているコマンド  
+```
+$docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
+```
