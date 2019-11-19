@@ -125,4 +125,17 @@ $docker run --name <コンテナ名> -d \
 ## DockerHubでnginxリポジトリの説明に記載されているコマンド  
 ```
 $docker run --name some-nginx -v /some/content:/usr/share/nginx/html:ro -d nginx
+```  
+
+# DockerfileのCOPYコマンド
+### ホストマシンのファイルをコンテナ内にコピーする場合  
+```
+$docker cp <ホスト上のコピーしたいファイルのパス> \
+           <コンテナ名orID>:<コピー先のパス>
+```
+
+### コンテナ内のファイルをホストマシンにコピーする場合  
+```
+$docker cp <コンテナ名orID>:<コンテナ上のコピーしたいファイルのパス> \
+           <コピー先のパス>
 ```
