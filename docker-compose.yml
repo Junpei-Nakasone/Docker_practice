@@ -9,15 +9,21 @@ services:
   web:
     # docker-composeと同じディレクトリをビルドコンテキストとしている。そのため、docker-compose.ymlと同じディレクトリにDockerfileを用意しておく必要がある。
     build: .
-    # portsはコンテナ外部に公開するポートとマッピング先のポートを示している
+    # portsはコンテナ外部に公開するポートとマッピング先のポートを示している。
     ports:
     - "5000:5000"
+    # volumesでは二つの定義がある。
     volumes:
+    # バインドマウントで、docker-compose.ymlの存在するディレクトリをコンテナの/codeディレクトリにマウントしている。
     - .:/code
+    # volumesに定義したlogvolume01のvolumeをwebサービスのコンテナの/var/logにマウントしている。このように名前をつけたvolumeをマウントする場合は、volumesに定義しておく必要がある。
     - logvolume01:/var/log
+    # linksではwebサービスからredisサービスへのリンクを設定している。
     links:
     - redis
+  # 単純にredisイメージを使用してコンテナを立ち上げている。
   redis:
     image: redis
+# ここでは明示的にvolume名の後ろに{}をつけているが、この{}は書かなくても問題ない。volumeに使用するドライバーなどの設定を書く場合は、volume名の下に設定を続けて書くことができるが、単純にデフォルトのvolumeを使用する場合は設定は不要
 volumes:
   logvolume01: {}
